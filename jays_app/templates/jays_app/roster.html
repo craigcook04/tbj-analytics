@@ -68,6 +68,8 @@
                 <td>{{ r.jerseyNumber }}</td>
             {% elif r.jerseyNumber.0 %}
                 <td>0{{ r.jerseyNumber }}</td>
+            {% else %}
+                <td>{{ r.jerseyNumber }}</td>
             {% endif %}
             <td>{{ r.person.fullName }}</td>
             <td>{{r.position.name}} ({{r.position.abbreviation}})</td>
