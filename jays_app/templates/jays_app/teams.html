@@ -1,0 +1,89 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'jays_app/css/teams.css' %}">
+
+<script>
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("teams");
+        switching = true;
+        //Set the sorting direction to ascending:
+        dir = "asc"; 
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+        //start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+            //start by saying there should be no switching:
+            shouldSwitch = false;
+            /*Get the two elements you want to compare,
+            one from current row and one from the next:*/
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            /*check if the two rows should switch place,
+            based on the direction, asc or desc:*/
+            if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                //if so, mark as a switch and break the loop:
+                shouldSwitch= true;
+                break;
+            }
+            } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                //if so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+            }
+            }
+        }
+        if (shouldSwitch) {
+            /*If a switch has been marked, make the switch
+            and mark that a switch has been done:*/
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            //Each time a switch is done, increase this count by 1:
+            switchcount ++;      
+        } else {
+            /*If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again.*/
+            if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+            }
+        }
+        }
+    }
+</script>
+
+<div class='header'>
+    <h2>Toronto Blue Jays Stats App</h2>
+</div>
+
+<ul class='nav'>
+    <li><a href="/jays/">Home</a></li>
+    <li><a class="active" href="/jays/teams/">Teams</a></li>
+    <li><a href="/jays/roster/">Rosters</a></li>
+    <li><a href="/jays/players">Players</a></li>
+    <li><a href="/jays/about">About Me</a></li>
+</ul>
+
+<div class='teams-table'>
+    <h2 class='title'>MLB Teams</h2>
+    <table id="teams">
+        <tr>
+            <th onclick="sortTable(0)">Team Name</th>
+            <th onclick="sortTable(1)">Division</th>
+        </tr>  
+        {% for t in teams.teams %}
+        <tr>
+            <td><a href="/jays/roster/{{t.id}}/">{{t.name}}</a></td>
+            <td>{{t.division.name}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+

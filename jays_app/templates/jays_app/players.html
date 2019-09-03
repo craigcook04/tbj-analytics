@@ -1,0 +1,271 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'jays_app/css/players.css' %}">
+
+<script>
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("pitching");
+        switching = true;
+        dir = "asc"; 
+        while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch= true;
+                break;
+            }
+            } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+            }
+        }
+        }
+    }
+    function sortTable1(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("players");
+        switching = true;
+        dir = "asc"; 
+        while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch= true;
+                break;
+            }
+            } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+            }
+        }
+        }
+    }
+</script>
+
+<div class='header'>
+    <h2>Toronto Blue Jays Stats App</h2>
+</div>
+
+<ul class='nav'>
+    <li><a href="/jays/">Home</a></li>
+    <li><a href="/jays/teams/">Teams</a></li>
+    <li><a href="/jays/roster/">Rosters</a></li>
+    <li><a class="active" href="/jays/players">Players</a></li>
+    <li><a href="/jays/about">About Me</a></li>
+</ul>
+
+<div class='grid-container'>
+    <div class='info'>
+        <img class='player-img' src="{% static 'jays_app/avatar.jpg' %}" alt="stock-img">
+        
+        <div>
+            {% for p in players.people %}
+                <p><strong class='name'>{{ p.fullName }} #{{ p.primaryNumber }}</strong></p>
+                <p>{{ p.primaryPosition.name }} ({{ p.primaryPosition.abbreviation }})</p>
+                <p>Age: {{ p.currentAge }} ({{ p.birthDate }})</p>
+                <p>{{ p.birthCity }}, {{ p.birthStateProvince }} ({{ p.birthCountry }})</p>
+                <a href="/jays/report/{{p.id}}">Download Scouting Report</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div style="overflow-x:auto;" class='grid-container'>
+    {% if players.people.0.stats.0.group.displayName == 'pitching' %}
+        <h2 class='title'>Pitching Statistics</h2>
+        <div class='pitch-table'>
+                <table id="pitching">
+                    <tr>
+                        <th onclick="sortTable(0)">Season</th>
+                        <th onclick="sortTable(1)">G</th>
+                        <th onclick="sortTable(2)">IP</th>
+                        <th onclick="sortTable(3)">BF</th>
+                        <th onclick="sortTable(4)">NP</th>
+                        <th onclick="sortTable(5)">K</th>
+                        <th onclick="sortTable(6)">K:W</th>
+                        <th onclick="sortTable(7)">ERA</th>
+                        <th onclick="sortTable(8)">WHIP</th>
+                        <th onclick="sortTable(9)">W</th>
+                        <th onclick="sortTable(10)">L</th>
+                    </tr>  
+                    {% for p in players.people.0.stats.0.splits %}
+                    <tr>
+                        <td>{{p.season}}</td>
+                        <td>{{p.stat.gamesPitched}}</a></td>
+                        <td>{{p.stat.inningsPitched}}</td>
+                        <td>{{p.stat.battersFaced}}</td>
+                        <td>{{p.stat.numberOfPitches}}</td>
+                        <td>{{p.stat.strikes}}</td>
+                        <td>{{p.stat.strikeoutWalkRatio}}</td>
+                        <td>{{p.stat.era}}</td>
+                        <td>{{p.stat.whip}}</td>
+                        <td>{{p.stat.wins}}</td>
+                        <td>{{p.stat.losses}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+    {% elif players.people.0.stats.1.group.displayName == 'pitching' %}
+        <h2 class='title'>Pitching Statistics</h2>
+        <div class='pitch-table'>
+            <table id="pitching">
+                <tr>
+                    <th onclick="sortTable(0)">Season</th>
+                    <th onclick="sortTable(1)">G</th>
+                    <th onclick="sortTable(2)">IP</th>
+                    <th onclick="sortTable(3)">BF</th>
+                    <th onclick="sortTable(4)">NP</th>
+                    <th onclick="sortTable(5)">K</th>
+                    <th onclick="sortTable(6)">K:W</th>
+                    <th onclick="sortTable(7)">ERA</th>
+                    <th onclick="sortTable(8)">WHIP</th>
+                    <th onclick="sortTable(9)">W</th>
+                    <th onclick="sortTable(10)">L</th>
+                </tr>  
+                {% for p in players.people.0.stats.1.splits %}
+                <tr>
+                    <td>{{p.season}}</td>
+                    <td>{{p.stat.gamesPitched}}</a></td>
+                    <td>{{p.stat.inningsPitched}}</td>
+                    <td>{{p.stat.battersFaced}}</td>
+                    <td>{{p.stat.numberOfPitches}}</td>
+                    <td>{{p.stat.strikes}}</td>
+                    <td>{{p.stat.strikeoutWalkRatio}}</td>
+                    <td>{{p.stat.era}}</td>
+                    <td>{{p.stat.whip}}</td>
+                    <td>{{p.stat.wins}}</td>
+                    <td>{{p.stat.losses}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% elif players.people.0.stats.2.group.displayName == 'pitching' %}
+        <h2 class='title'>Pitching Statistics</h2>
+        <div class='pitch-table'>
+            <table id="pitching">
+                <tr>
+                    <th onclick="sortTable(0)">Season</th>
+                    <th onclick="sortTable(1)">G</th>
+                    <th onclick="sortTable(2)">IP</th>
+                    <th onclick="sortTable(3)">BF</th>
+                    <th onclick="sortTable(4)">NP</th>
+                    <th onclick="sortTable(5)">K</th>
+                    <th onclick="sortTable(6)">K:W</th>
+                    <th onclick="sortTable(7)">ERA</th>
+                    <th onclick="sortTable(8)">WHIP</th>
+                    <th onclick="sortTable(9)">W</th>
+                    <th onclick="sortTable(10)">L</th>
+                </tr>  
+                {% for p in players.people.0.stats.2.splits %}
+                <tr>
+                    <td>{{p.season}}</td>
+                    <td>{{p.stat.gamesPitched}}</a></td>
+                    <td>{{p.stat.inningsPitched}}</td>
+                    <td>{{p.stat.battersFaced}}</td>
+                    <td>{{p.stat.numberOfPitches}}</td>
+                    <td>{{p.stat.strikes}}</td>
+                    <td>{{p.stat.strikeoutWalkRatio}}</td>
+                    <td>{{p.stat.era}}</td>
+                    <td>{{p.stat.whip}}</td>
+                    <td>{{p.stat.wins}}</td>
+                    <td>{{p.stat.losses}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+</div>
+<div style="overflow-x:auto;" class='grid-container'>
+    <h2 class='title'>Batting Statistics</h2>
+    <div class='stats-table'>
+        <table id="players">
+            <tr>
+                <th onclick="sortTable1(0)">Season</th>
+                <th onclick="sortTable1(1)">G</th>
+                <th onclick="sortTable1(2)">GO</th>
+                <th onclick="sortTable1(3)">R</th>
+                <th onclick="sortTable1(4)">HR</th>
+                <th onclick="sortTable1(5)">SO</th>
+                <th onclick="sortTable1(6)">H</th>
+                <th onclick="sortTable1(7)">AVG</th>
+                <th onclick="sortTable1(8)">AB</th>
+                <th onclick="sortTable1(9)">OBP</th>
+                <th onclick="sortTable1(10)">SLG</th>
+                <th onclick="sortTable1(11)">OPS</th>
+                <th onclick="sortTable1(12)">SB</th>
+            </tr>
+            {% if players.people.0.stats.0.splits.0.stat.gamesPlayed %}
+                {% for p in players.people.0.stats.0.splits %}   
+                <tr>
+                    <td>{{p.season}}</td>
+                    <td>{{p.stat.gamesPlayed}}</td>
+                    <td>{{p.stat.groundOuts}}</td>
+                    <td>{{p.stat.runs}}</td>
+                    <td>{{p.stat.homeRuns}}</td>
+                    <td>{{p.stat.strikeOuts}}</td>
+                    <td>{{p.stat.hits}}</td>
+                    <td>{{p.stat.avg}}</td>
+                    <td>{{p.stat.atBats}}</td>
+                    <td>{{p.stat.obp}}</td>
+                    <td>{{p.stat.slg}}</td>
+                    <td>{{p.stat.ops}}</td>
+                    <td>{{p.stat.stolenBases}}</td>
+                </tr>
+                {% endfor %}                        
+            {% elif players.people.0.stats.1.splits.0.stat.gamesPlayed %}
+                {% for p in players.people.0.stats.1.splits %}   
+                <tr>
+                    <td>{{p.season}}</td>
+                    <td>{{p.stat.gamesPlayed}}</td>
+                    <td>{{p.stat.groundOuts}}</td>
+                    <td>{{p.stat.runs}}</td>
+                    <td>{{p.stat.homeRuns}}</td>
+                    <td>{{p.stat.strikeOuts}}</td>
+                    <td>{{p.stat.hits}}</td>
+                    <td>{{p.stat.avg}}</td>
+                    <td>{{p.stat.atBats}}</td>
+                    <td>{{p.stat.obp}}</td>
+                    <td>{{p.stat.slg}}</td>
+                    <td>{{p.stat.ops}}</td>
+                    <td>{{p.stat.stolenBases}}</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</div>

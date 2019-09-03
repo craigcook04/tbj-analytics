@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'tbj';
+  src: url('./TBJ.otf')
+}
+
+.header {
+  font-family: 'tbj';
+  font-size: 30px;
+  text-align: center;
+  background-color: #134A8E;
+  color: #e7e7e7;
+  padding: 1px;
+}
+
+.title {
+  color: #134A8E;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav {
+  position: sticky;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: flex;
+  color: #134A8E;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #134A8E;
+}
+
+.teams-table {
+  width: 80%;
+  margin: auto auto;
+}
+
+#teams {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  margin: 20px auto;
+}
+
+#teams td, #teams th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#teams tr:nth-child(even){background-color: #f2f2f2;}
+
+#teams tr:hover {background-color: #ddd;}
+
+#teams th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #134A8E;
+  color: white;
+  text-align: center;
+}
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}

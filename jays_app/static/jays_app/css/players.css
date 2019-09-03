@@ -1,0 +1,150 @@
+@font-face {
+  font-family: 'tbj';
+  src: url('./TBJ.otf')
+}
+
+.header {
+  font-family: 'tbj';
+  font-size: 30px;
+  text-align: center;
+  background-color: #134A8E;
+  color: #e7e7e7;
+  padding: 1px;
+}
+
+.title {
+  color: #1D2D5C;
+  font-size: 20px;
+  margin: 20px auto; 
+  text-align: center;
+}
+
+.name {
+  color: #134A8E;
+  font-size: 18px;
+  text-align: left;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  font-size: 14px;
+}
+
+.info {
+  margin: auto auto;
+  width: 60%;
+  padding: 20px;
+}
+
+.stats-table {
+  overflow-x: auto;
+  margin: auto auto;
+}
+
+.pitch-table {
+  overflow-x: auto;
+  margin: auto auto;
+}
+
+.nav {
+    position: sticky;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+  }
+  
+li {
+    float: left;
+  }
+  
+li a {
+  display: flex;
+  color: #134A8E;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #134A8E;
+}
+
+.player-img {
+    min-height: 150px;
+    width: 150px;
+    float: left;
+    padding-right: 10px;
+}
+
+table {
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+#players {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#players td, #players th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#players tr:nth-child(even){background-color: #f2f2f2;}
+
+#players tr:hover {background-color: #ddd;}
+
+#players th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #134A8E;
+  color: white;
+}
+
+#pitching {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#pitching td, #pitching th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#pitching tr:nth-child(even){background-color: #f2f2f2;}
+
+#pitching tr:hover {background-color: #ddd;}
+
+#pitching th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #134A8E;
+  color: white;
+}
+
+th {
+  cursor: pointer;
+}

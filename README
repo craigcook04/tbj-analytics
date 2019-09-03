@@ -1,0 +1,7 @@
+RUN THE APPLICATION
+
+1. CLONE REPO FROM GITHUB
+    
+
+2. OPEN DJANGODEV VIRTUAL ENVIRONMENT 
+    $ source ~/.virtualenvs/djangodev/bin/activate

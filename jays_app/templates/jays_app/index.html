@@ -1,0 +1,40 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'jays_app/css/index.css' %}">
+
+<div class='header'>
+    <h2>Toronto Blue Jays Stats App</h2>
+</div>
+
+<ul class='nav'>
+    <li><a class="active" href="/jays/">Home</a></li>
+    <li><a href="/jays/teams/">Teams</a></li>
+    <li><a href="/jays/roster/">Rosters</a></li>
+    <li><a href="/jays/players">Players</a></li>
+    <li><a href="/jays/about">About Me</a></li>
+</ul>
+
+<div class='intro'>
+    <h2 class='title'>My MLB Analytics Application</h2>
+    <h5 class='title'>By: Craig Cook</h5>
+    <h4 class='title'>TASK 1</h4> 
+    <p>
+        This website presents the following features as outlined in the application:
+    </p>
+    <ol>
+        <li>View all MLB teams on the <strong class='title'>Teams</strong> page</li><br>
+        <ul>
+            <li><u>Select</u> a team to view their roster</li><br>
+            <li><u>Select</u> a player to view their stats in a data table</li><br>
+            <ul>
+                <li><u>Sort</u> by stat</li><br>
+            </ul>
+            <li><u>Download</u> player scouting reports</li><br>
+        </ul>
+    </ol>
+    <p>
+        My application was built using Django 3.0 for the web, and created with modularity for mobile displays as well.
+    </p>
+</div>
+
+
