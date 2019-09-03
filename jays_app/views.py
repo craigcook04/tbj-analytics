@@ -57,11 +57,13 @@ def roster(request, teamId):
 # Get MLB players JSON for specific team
 def players(request, playerId):
     url = ("https://statsapi.mlb.com/api/v1/people/" + playerId + "?hydrate=stats(group=[hitting,pitching,fielding],type=[yearByYear])")
+    pic_url = ("https://securea.mlb.com/mlb/images/players/head_shot/" + playerId + ".jpg")
     with urllib.request.urlopen(url) as url:
         data = json.loads(url.read().decode())
     template = loader.get_template('jays_app/players.html')
     context = {
         'players': data,
+        'pic_url': pic_url
     }
     return HttpResponse(template.render(context, request))
 

@@ -87,7 +87,7 @@ li a.active {
 }
 
 .player-img {
-    min-height: 150px;
+    min-height: 100px;
     width: 150px;
     float: left;
     padding-right: 10px;

@@ -1,4 +1,8 @@
-RUN THE APPLICATION
+START THE APPLICATION
+
+Dependencies:
+    - Python 3.7
+    - Django 3.0
 
 1. CLONE REPO FROM GITHUB 
     https://github.com/craigcook04/tbj-analytics.git

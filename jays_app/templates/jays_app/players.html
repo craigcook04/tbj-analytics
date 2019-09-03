@@ -91,10 +91,11 @@
 
 <div class='grid-container'>
     <div class='info'>
-        <img class='player-img' src="{% static 'jays_app/avatar.jpg' %}" alt="stock-img">
+        <img class='player-img' src="{{pic_url}}" alt="stock-img">
         
         <div>
             {% for p in players.people %}
+                <br>
                 <p><strong class='name'>{{ p.fullName }} #{{ p.primaryNumber }}</strong></p>
                 <p>{{ p.primaryPosition.name }} ({{ p.primaryPosition.abbreviation }})</p>
                 <p>Age: {{ p.currentAge }} ({{ p.birthDate }})</p>
