@@ -217,30 +217,26 @@
             <tr>
                 <th onclick="sortTable1(0)">Season</th>
                 <th onclick="sortTable1(1)">G</th>
-                <th onclick="sortTable1(2)">GO</th>
-                <th onclick="sortTable1(3)">R</th>
-                <th onclick="sortTable1(4)">HR</th>
-                <th onclick="sortTable1(5)">SO</th>
-                <th onclick="sortTable1(6)">H</th>
-                <th onclick="sortTable1(7)">AVG</th>
-                <th onclick="sortTable1(8)">AB</th>
-                <th onclick="sortTable1(9)">OBP</th>
-                <th onclick="sortTable1(10)">SLG</th>
-                <th onclick="sortTable1(11)">OPS</th>
-                <th onclick="sortTable1(12)">SB</th>
+                <th onclick="sortTable1(2)">AVG</th>
+                <th onclick="sortTable1(3)">AB</th>
+                <th onclick="sortTable1(4)">H</th>
+                <th onclick="sortTable1(5)">R</th>
+                <th onclick="sortTable1(6)">HR</th>
+                <th onclick="sortTable1(7)">OBP</th>
+                <th onclick="sortTable1(8)">SLG</th>
+                <th onclick="sortTable1(9)">OPS</th>
+                <th onclick="sortTable1(10)">SB</th>
             </tr>
             {% if players.people.0.stats.0.splits.0.stat.gamesPlayed %}
                 {% for p in players.people.0.stats.0.splits %}   
                 <tr>
                     <td>{{p.season}}</td>
                     <td>{{p.stat.gamesPlayed}}</td>
-                    <td>{{p.stat.groundOuts}}</td>
-                    <td>{{p.stat.runs}}</td>
-                    <td>{{p.stat.homeRuns}}</td>
-                    <td>{{p.stat.strikeOuts}}</td>
-                    <td>{{p.stat.hits}}</td>
                     <td>{{p.stat.avg}}</td>
                     <td>{{p.stat.atBats}}</td>
+                    <td>{{p.stat.hits}}</td>
+                    <td>{{p.stat.runs}}</td>
+                    <td>{{p.stat.homeRuns}}</td>
                     <td>{{p.stat.obp}}</td>
                     <td>{{p.stat.slg}}</td>
                     <td>{{p.stat.ops}}</td>
@@ -252,18 +248,16 @@
                 <tr>
                     <td>{{p.season}}</td>
                     <td>{{p.stat.gamesPlayed}}</td>
-                    <td>{{p.stat.groundOuts}}</td>
-                    <td>{{p.stat.runs}}</td>
-                    <td>{{p.stat.homeRuns}}</td>
-                    <td>{{p.stat.strikeOuts}}</td>
-                    <td>{{p.stat.hits}}</td>
                     <td>{{p.stat.avg}}</td>
                     <td>{{p.stat.atBats}}</td>
+                    <td>{{p.stat.hits}}</td>
+                    <td>{{p.stat.runs}}</td>
+                    <td>{{p.stat.homeRuns}}</td>
                     <td>{{p.stat.obp}}</td>
                     <td>{{p.stat.slg}}</td>
                     <td>{{p.stat.ops}}</td>
                     <td>{{p.stat.stolenBases}}</td>
-                </tr>
+                    </tr>
                 {% endfor %}
             {% endif %}
         </table>
