@@ -4,7 +4,7 @@ RUN THE APPLICATION
     https://github.com/craigcook04/tbj-analytics.git
 
 2. OPEN TERMINAL TO APPLICATION DOWNLOAD LOCATION 
-    cd "/<your-downloads>/tbj-analytics
+    cd "/<your-downloads>/tbj-analytics-master
 
 3. OPEN DJANGODEV VIRTUAL ENVIRONMENT 
     $ source ~/.virtualenvs/djangodev/bin/activate
