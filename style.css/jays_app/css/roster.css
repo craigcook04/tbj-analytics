@@ -78,3 +78,7 @@ li a.active {
   color: white;
   text-align: center;
 }
+
+th {
+  cursor: pointer;
+}

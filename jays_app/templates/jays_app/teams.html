@@ -64,11 +64,11 @@
 </div>
 
 <ul class='nav'>
-    <li><a href="/jays/">Home</a></li>
-    <li><a class="active" href="/jays/teams/">Teams</a></li>
-    <li><a href="/jays/roster/">Rosters</a></li>
-    <li><a href="/jays/players">Players</a></li>
-    <li><a href="/jays/about">About Me</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a class="active" href="/teams/">Teams</a></li>
+    <li><a href="/roster/">Rosters</a></li>
+    <li><a href="/players">Players</a></li>
+    <li><a href="/about">About Me</a></li>
 </ul>
 
 <div class='teams-table'>
@@ -77,11 +77,13 @@
         <tr>
             <th onclick="sortTable(0)">Team Name</th>
             <th onclick="sortTable(1)">Division</th>
+            <th>Roster</th>
         </tr>  
         {% for t in teams.teams %}
         <tr>
-            <td><a href="/jays/roster/{{t.id}}/">{{t.name}}</a></td>
+            <td>{{t.name}}</td>
             <td>{{t.division.name}}</td>
+            <td><a href="/roster/{{t.id}}/">here</a></td>
         </tr>
         {% endfor %}
     </table>

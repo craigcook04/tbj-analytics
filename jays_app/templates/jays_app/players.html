@@ -82,11 +82,11 @@
 </div>
 
 <ul class='nav'>
-    <li><a href="/jays/">Home</a></li>
-    <li><a href="/jays/teams/">Teams</a></li>
-    <li><a href="/jays/roster/">Rosters</a></li>
-    <li><a class="active" href="/jays/players">Players</a></li>
-    <li><a href="/jays/about">About Me</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/teams/">Teams</a></li>
+    <li><a href="/roster/">Rosters</a></li>
+    <li><a class="active" href="/players">Players</a></li>
+    <li><a href="/about">About Me</a></li>
 </ul>
 
 <div class='grid-container'>
@@ -99,7 +99,7 @@
                 <p>{{ p.primaryPosition.name }} ({{ p.primaryPosition.abbreviation }})</p>
                 <p>Age: {{ p.currentAge }} ({{ p.birthDate }})</p>
                 <p>{{ p.birthCity }}, {{ p.birthStateProvince }} ({{ p.birthCountry }})</p>
-                <a href="/jays/report/{{p.id}}">Download Scouting Report</a>
+                <a href="/report/{{p.id}}">Download Scouting Report</a>
             {% endfor %}
         </div>
     </div>

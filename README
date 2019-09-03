@@ -1,7 +1,17 @@
 RUN THE APPLICATION
 
-1. CLONE REPO FROM GITHUB
-    
+1. CLONE REPO FROM GITHUB 
+    https://github.com/craigcook04/tbj-analytics.git
 
-2. OPEN DJANGODEV VIRTUAL ENVIRONMENT 
+2. OPEN TERMINAL TO APPLICATION DOWNLOAD LOCATION 
+    cd "/<your-downloads>/tbj-analytics
+
+3. OPEN DJANGODEV VIRTUAL ENVIRONMENT 
     $ source ~/.virtualenvs/djangodev/bin/activate
+
+4. RUN DJANGO SERVER
+    $ python manage.py runserver
+
+5. OPEN APPLICATION IN BROWSER
+    click link to development server in terminal (http://127.0.0.1:8000/)
+
