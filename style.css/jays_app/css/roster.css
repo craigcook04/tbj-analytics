@@ -28,6 +28,13 @@
   background-color: #f3f3f3;
 }
 
+.logo {
+  max-width: 75px;
+  display: block;
+  margin: auto auto;
+  padding-top: 10px
+}
+
 li {
   float: left;
 }

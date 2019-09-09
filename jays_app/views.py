@@ -43,6 +43,7 @@ def teams(request):
 # Get roster for selected team
 def roster(request, teamId):
     url = ("https://statsapi.mlb.com/api/v1/teams/" + teamId + "/roster")
+    logo_url = ("https://www.mlbstatic.com/team-logos/" + teamId + ".svg")
     with urllib.request.urlopen(url) as url:
         data = json.loads(url.read().decode())
     with urllib.request.urlopen("https://statsapi.mlb.com/api/v1/teams/" + teamId) as url:
@@ -50,7 +51,8 @@ def roster(request, teamId):
     template = loader.get_template('jays_app/roster.html')
     context = {
         'roster': data,
-        'teamData': teamData
+        'teamData': teamData,
+        'logo_url': logo_url
     }
     return HttpResponse(template.render(context, request))
 
